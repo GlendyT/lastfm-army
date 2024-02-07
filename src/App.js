@@ -1,23 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import { LastFmData } from "./components/LastFmData";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LastFmData userName={"JungCarly"} apiKey={"5070f1237d27ff63d7c47401f8fa6b5b"} />
     </div>
   );
 }
