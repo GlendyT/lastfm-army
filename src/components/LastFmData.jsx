@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-export const LastFmData = ({ userName, apiKey }) => {
+export const LastFmData = ({ userName, apiKey}) => {
   const [lfmData, updateLfmData] = useState({});
-  
+
+
   useEffect(() => {
-    fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${userName}&api_key=${apiKey}&limit=1&nowplaying=true&format=json`)
+    fetch(`${process.env.REACT_APP_PUBLIC_URL}?method=user.getRecentTracks&user=${userName}&api_key=${apiKey}&limit=30&nowplaying=true&format=json`)
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -15,11 +16,13 @@ export const LastFmData = ({ userName, apiKey }) => {
       .catch(() =>
         updateLfmData({ error: 'Whoops! Something went wrong with Last.fm' })
       );
-  }, []);
+  }, [apiKey, userName]);
   
   const buildLastFmData = () => {
     const  { error } = lfmData;
     const track = lfmData?.recenttracks?.track;
+
+    console.log(track)
   
     if (error) {
       return <p>{error}</p>;
@@ -33,7 +36,7 @@ export const LastFmData = ({ userName, apiKey }) => {
       { name: songName, artist: { '#text': artistName } = {} } = {}
     ] = track;
   
-    return <h3>Currently listening to: {songName} by {artistName}</h3>;
+    return <h3>: {songName} by {artistName}</h3>;
   };
 
   return buildLastFmData();
