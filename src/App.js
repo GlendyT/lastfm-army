@@ -5,10 +5,10 @@ function App() {
   return (
     <div className="App">
       <LastFmUserData
-        userName={"JungCarly"}
+        userName={`${process.env.REACT_APP_CLIENT_ID}`}
       />
       <LastFmData
-        userName={"JungCarly"}
+        userName={`${process.env.REACT_APP_CLIENT_ID}`}
         apiKey={`${process.env.REACT_APP_API_KEY}`}
       />
 
