@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import { LastFmData } from "../components/LastFmData";
+import AuthLast from "../authorization/AuthLast";
 
-const Login = ({apiKey}) => {
+const Login = () => {
   return (
     <>
       <h1 className="text-purple-600 font-black text-6xl capitalize">
@@ -23,11 +23,12 @@ const Login = ({apiKey}) => {
       <Link
         className="block text-center my-5 text-slate-500 uppercase text-sm"
         to="https://www.last.fm/es/join"
+        target="_blank"
        >
         No tienes una Cuenta? Registrate
        </Link>
-       <LastFmData
-        apiKey={`${process.env.REACT_APP_API_KEY}`}
+       <AuthLast
+       apiKey={`${process.env.REACT_APP_API_KEY}`}
        />
 
     </>
@@ -37,6 +38,9 @@ const Login = ({apiKey}) => {
 export default Login;
 
 /*   
-
+       <LastFmData
+        userName={`${process.env.REACT_APP_CLIENT_ID}`}
+        apiKey={`${process.env.REACT_APP_API_KEY}`}
+      />
         
         */

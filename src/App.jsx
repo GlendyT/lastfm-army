@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthLayout from "./layout/AuthLayout";
 
 import Login from "./pages/Login";
-import Register from "./pages/Register"
+import { LastFmUserData } from "./pages/LastFmUserData";
 
 function App() {
   return (
@@ -11,8 +11,7 @@ function App() {
      <Routes>
       <Route path="/" element={<AuthLayout/>}>
         <Route index element={<Login/>}/>
-        <Route path="register" element={<Register/>}/>
-
+        <Route path="LastFmUserData" element={<LastFmUserData/>}/>
       </Route>
      </Routes>
     </BrowserRouter>
