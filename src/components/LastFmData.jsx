@@ -21,8 +21,6 @@ export const LastFmData = ({ userName, apiKey}) => {
   const buildLastFmData = () => {
     const  { error } = lfmData;
     const track = lfmData?.recenttracks?.track;
-
-    console.log(track)
   
     if (error) {
       return <p>{error}</p>;
