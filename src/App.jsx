@@ -4,16 +4,23 @@ import AuthLayout from "./layout/AuthLayout";
 
 import Login from "./pages/Login";
 import { LastFmUserData } from "./pages/LastFmUserData";
+import RutaProtegida from "./layout/RutaProtegida";
+import Register from "./pages/Register";
+
+import { AuthProvider } from "./context/AuthProvider";
 
 function App() {
   return (
     <BrowserRouter>
+    <AuthProvider> 
      <Routes>
       <Route path="/" element={<AuthLayout/>}>
         <Route index element={<Login/>}/>
-        <Route path="LastFmUserData" element={<LastFmUserData/>}/>
+        <Route path="register" element={<Register/>}/>
       </Route>
+      <Route path="/lastFmUserData" element={<RutaProtegida/>}/>
      </Routes>
+     </AuthProvider>
     </BrowserRouter>
   );
 }
