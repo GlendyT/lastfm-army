@@ -33,7 +33,7 @@ export const AuthLast = ({apiKey}) => {
             const requestToken = data.token;
           
 
-          const callbackPath = "/LastFmUserData";
+          const callbackPath = ("/LastFmUserData");
           window.location.href = `http://www.last.fm/api/auth/?api_key=${apiKey}&token=${requestToken}&cb=${window.location.origin}${callbackPath}`;
         } catch (error) {
           console.error("Error getting request token:", error)
@@ -60,11 +60,3 @@ export const AuthLast = ({apiKey}) => {
 };
 
 export default AuthLast;
-
-/*    fetch(`http://ws.audioscrobbler.com/2.0/?method=auth.gettoken&api_key=${apiKey}&format=json`)
-      .then(response => response.json())
-      .then(data => {
-        const requestToken = data.token;
-        setToken(requestToken);
-
-        */

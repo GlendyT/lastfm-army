@@ -1,8 +1,18 @@
-import { Link } from "react-router-dom";
-
+import Register from "../pages/Register"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 import AuthLast from "../authorization/AuthLast";
 
+
 const Login = () => {
+
+  const {hola} = useAuth();
+
+  console.log(hola);
+
+
+
   return (
     <>
       <h1 className="text-purple-600 font-black text-6xl capitalize">
@@ -19,18 +29,10 @@ const Login = () => {
           className="bg-purple-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-purple-800 transition-colors"
         />
       </form>
-
-      <Link
-        className="block text-center my-5 text-slate-500 uppercase text-sm"
-        to="https://www.last.fm/es/join"
-        target="_blank"
-       >
-        No tienes una Cuenta? Registrate
-       </Link>
-       <AuthLast
-       apiKey={`${process.env.REACT_APP_API_KEY}`}
-       />
-
+      <AuthLast
+       apiKey={process.env.REACT_APP_API_KEY}
+      />
+      <Register/>
     </>
   );
 };
