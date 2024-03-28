@@ -11,6 +11,11 @@ const App = () => {
       setUser={setUser}
       apiKey={`${process.env.REACT_APP_API_KEY}`}
      />
+          <Login
+      user={user}
+      setUser={setUser}
+      apiKey={`${process.env.REACT_APP_API_KEY}`}
+     />
     </>
   )
 }

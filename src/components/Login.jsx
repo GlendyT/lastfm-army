@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Register from "./Register";
 
 const LastFmUserInfo = () => {
   const [userInfo, setUserInfo] = useState(null);
@@ -39,9 +40,8 @@ const LastFmUserInfo = () => {
     fetchUserInfo();
   };
 
-  console.log(userInfo);
-
   return (
+    <div className="p-5">
     <form onSubmit={handleSubmit} className="text-center">
       <input
         type="text"
@@ -50,7 +50,10 @@ const LastFmUserInfo = () => {
         placeholder="Enter Last.fm username"
         required
       />
-      <button type="submit">Get User Info</button>
+      <button 
+      type="submit"
+      className="rounded-md text-white bg-black p-1"
+      >Get User Info</button>
 
       {loading && <p>Loading...</p>}
 
@@ -75,6 +78,7 @@ const LastFmUserInfo = () => {
         <p>No user information found</p>
       )}
     </form>
+</div> 
   );
 };
 
